@@ -1,0 +1,38 @@
+环路带宽对噪声抑制性能的影响
+生成时间：2026-11-03 20:24:01
+模型：Loop_Bandwidth_Noise_Suppression.slx
+数组记录间隔：0.01 s；稳态统计起点：50 s
+NoisePower=mean(Noise.^2)，ErrorMeanSquare=mean(TraErr.^2)，RMSE=sqrt(ErrorMeanSquare)。
+TraErr为干净输入减环路输出；行标签依据out字段名，需确认模型实际参数。
+
+===== 全记录统计（包含启动暂态）=====
+LoopOrder	Bandwidth_Hz	Samples	Start_s	End_s	NoisePower	ErrorMeanSquare	RMSE
+1	1	50001	0	500	100.1311718	2.027759961	1.423994368
+1	0.1	50001	0	500	100.1311718	0.2349457308	0.4847120081
+2	1	50001	0	500	100.1311718	2.091807463	1.446308219
+2	0.1	50001	0	500	100.1311718	0.253949631	0.5039341534
+
+===== 稳态区间统计 =====
+LoopOrder	Bandwidth_Hz	Samples	Start_s	End_s	NoisePower	ErrorMeanSquare	RMSE
+1	1	45001	50	500	100.2144663	2.058069904	1.434597471
+1	0.1	45001	50	500	100.2144663	0.2340620788	0.4837996267
+2	1	45001	50	500	100.2144663	2.138919487	1.462504526
+2	0.1	45001	50	500	100.2144663	0.2479076052	0.4979032087
+
+===== 跟踪误差均方值 =====
+Bandwidth_Hz	FirstOrder_ErrorMeanSquare	SecondOrder_ErrorMeanSquare
+1	2.058069904	2.138919487
+0.1	0.2340620788	0.2479076052
+
+===== 均方根误差 =====
+Bandwidth_Hz	FirstOrder_RMSE	SecondOrder_RMSE
+1	1.434597471	1.462504526
+0.1	0.4837996267	0.4979032087
+
+字段说明：LoopOrder=环路阶数；Bandwidth_Hz=带宽；Samples=统计样本数；
+Start_s/End_s=统计起止时间；NoisePower=输入噪声功率；
+ErrorMeanSquare=跟踪误差均方值；RMSE=均方根误差。
+
+课件参数：噪声Noise power=1、Sample time=0.01 s。
+一阶1/0.1 Hz增益：4 / 0.4。
+二阶1 Hz增益：3.559986、2.667925；0.1 Hz：0.035600、0.266792。
